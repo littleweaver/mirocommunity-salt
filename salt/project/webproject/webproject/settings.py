@@ -222,6 +222,7 @@ UPLOADTEMPLATE_PROTECTED_STATIC_FILES = (
 
 import djcelery
 djcelery.setup_loader()
+CELERY_ALWAYS_EAGER = True
 BROKER_URL = "{{ pillar['settings']['celery']['broker_url'] }}"
 CELERY_BACKEND = 'cache'
 CELERY_SEND_TASK_ERROR_EMAILS = False
