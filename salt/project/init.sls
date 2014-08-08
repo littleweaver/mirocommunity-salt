@@ -162,3 +162,34 @@ webproject_collectstatic:
     - watch:
       - file: webproject_project
       - virtualenv: webproject_env
+
+webproject_update_sources:
+  cron.present:
+    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py update_sources
+    - user: webproject
+    - minute: 0
+    - hour: 0
+
+webproject_update_popularity:
+  cron.present:
+    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py update_popularity
+    - user: webproject
+    - minute: 0
+    - hour: 4
+    - dayweek: 0,4
+
+webproject_update_thumbnails:
+  cron.present:
+    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py update_thumbnails
+    - user: webproject
+    - minute: 0
+    - hour: 4
+    - dayweek: 1,5
+
+webproject_update_publish_date:
+  cron.present:
+    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py update_publish_date
+    - user: webproject
+    - minute: 0
+    - hour: 23
+    - daymonth: 1
