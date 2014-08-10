@@ -169,6 +169,7 @@ webproject_update_sources:
     - user: webproject
     - minute: 0
     - hour: 0
+    - identifier: weproject_update_sources
 
 webproject_update_popularity:
   cron.present:
@@ -177,6 +178,7 @@ webproject_update_popularity:
     - minute: 0
     - hour: 4
     - dayweek: 0,4
+    - identifier: webproject_update_popularity
 
 webproject_update_thumbnails:
   cron.present:
@@ -185,6 +187,7 @@ webproject_update_thumbnails:
     - minute: 0
     - hour: 4
     - dayweek: 1,5
+    - identifier: webproject_update_thumbnails
 
 webproject_update_publish_date:
   cron.present:
@@ -193,3 +196,4 @@ webproject_update_publish_date:
     - minute: 0
     - hour: 23
     - daymonth: 1
+    - identifier: webproject_update_publish_date
