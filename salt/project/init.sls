@@ -189,6 +189,15 @@ webproject_update_thumbnails:
     - dayweek: 1,5
     - identifier: webproject_update_thumbnails
 
+webproject_update_index:
+  cron.present:
+    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py update_publish_date
+    - user: webproject
+    - minute: 0
+    - hour: 4
+    - dayweek: 2,6
+    - identifier: webproject_update_index
+
 webproject_update_publish_date:
   cron.present:
     - name: {{ pillar['files']['env_dir'] }}bin/python manage.py update_publish_date
